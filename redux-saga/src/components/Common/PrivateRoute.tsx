@@ -1,10 +1,10 @@
 import React, { ReactElement } from 'react'
-import { Navigate, Outlet } from 'react-router-dom'
+import { Redirect, Route, RouteProps } from 'react-router-dom'
 
-export function PrivateRoute(props: {}): ReactElement {
+export function PrivateRoute(props: RouteProps): ReactElement {
     // Check is login
     const isLogin = Boolean(localStorage.getItem('access_token'));
-    if (!isLogin) return <Navigate to='/login'></Navigate>
+    if (!isLogin) return <Redirect to='/login'></Redirect>
 
-    return <Outlet />
+    return <Route {...props}></Route>
 }

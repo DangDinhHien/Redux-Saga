@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import cityApi from 'api/cityApi';
-import { Routes, Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import LoginPage from 'features/auth/pages/LoginPage';
 import { Admin } from 'components/Layout';
 import { NotFound, PrivateRoute } from 'components/Common';
@@ -12,18 +12,19 @@ function App() {
 
   return (
     <div>
-      <Routes>
-        <Route path="/login" element={<LoginPage />}>
+      <Switch>
+        <Route path="/login">
+          <LoginPage />
         </Route>
-        <Route path="/admin" element={<PrivateRoute />}>
-          <Route path="/admin" element={<Admin />}>
-          </Route>
-        </Route>
+        <PrivateRoute path="/admin">
+          <Admin />
+        </PrivateRoute>
         
         {/* Not found */}
-        <Route path="*" element={<NotFound />}>
+        <Route path="*">
+          <NotFound />
         </Route>
-      </Routes>
+      </Switch>
     </div>
   );
 }
