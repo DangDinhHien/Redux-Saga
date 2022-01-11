@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Redux-Saga/static/css/main.91020895.css",
+    "main.js": "/Redux-Saga/static/js/main.a958ab6e.js",
+    "index.html": "/Redux-Saga/index.html",
+    "main.91020895.css.map": "/Redux-Saga/static/css/main.91020895.css.map",
+    "main.a958ab6e.js.map": "/Redux-Saga/static/js/main.a958ab6e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.91020895.css",
+    "static/js/main.a958ab6e.js"
+  ]
+}
