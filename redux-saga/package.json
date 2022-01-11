@@ -1,7 +1,7 @@
 {
   "name": "redux-saga",
   "version": "0.1.0",
-  "homepage": "https://dangdinhhien.github.io/Redux-Saga/",
+  "homepage": "https://dangdinhhien.github.io/login/",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.7.1",

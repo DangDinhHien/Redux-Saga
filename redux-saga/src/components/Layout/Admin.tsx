@@ -1,20 +1,50 @@
-import { useAppDispatch } from 'app/hooks';
-import { authActions } from 'features/auth/authSlice'
-import React, { ReactElement } from 'react'
+import { Box } from '@mui/material';
+import { makeStyles } from '@mui/styles';
+import { Header, Sidebar } from 'components/Common';
+import Dashboard from 'features/dashboard';
+import StudentFeature from 'features/students';
+import React, { ReactElement } from 'react';
+import { Route, Switch } from 'react-router-dom';
+
+const useStyles = makeStyles({
+    root: {
+        display: 'grid',
+        gridTemplateRows: 'auto 1fr',
+        gridTemplateColumns: '240px 1fr',
+        gridTemplateAreas: '"header header" "sidebar main"',
+
+        minHeight: '100vh'
+    },
+    header: {
+        gridArea: 'header',
+    },
+    sidebar: {
+        gridArea: 'sidebar',
+        borderRight: `1px solid #dddddd`
+    },
+    main: {
+        gridArea: 'main',
+        padding: '16px 24px',
+    }
+});
 
 export function Admin(): ReactElement {
-    const dispatch = useAppDispatch();
-
-    const handleLogoutClick = () => {
-        dispatch(authActions.logout())
-    }
+    const classes = useStyles();
 
     return (
-        <div>
-            Admin
-            <button onClick={handleLogoutClick} >
-                Logout
-            </button>
-        </div>
+        <Box className={classes.root}>
+            <Box className={classes.header}><Header /></Box>
+            <Box className={classes.sidebar}><Sidebar /></Box>
+            <Box className={classes.main}>
+                <Switch>
+                    <Route path="/admin/dashboard">
+                        <Dashboard />
+                    </Route>
+                    <Route path="/admin/students">
+                        <StudentFeature />
+                    </Route>
+                </Switch>
+            </Box>
+        </Box>
     )
 }

@@ -14,7 +14,7 @@ function* handleLogin(payload: LoginPayload) {
             name: "Test Login",
         }))
         // Redirect admin
-        yield put(push('/admin'));
+        yield put(push('/admin/dashboard'));
     } catch (error) {
         yield put(authActions.loginFailed("Wrong username or password"));
     }
